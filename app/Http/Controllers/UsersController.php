@@ -12,6 +12,8 @@ class UsersController extends Controller
     public function index()
     {
         $users = User::orderBy('id','desc')->paginate(9);
+//$users = orderBy('id','desc')は「すべてのユーザをＩＤが新しい順（降順）に並び替える」
+//paginate(9)は「９名のユーザを取得する」
 
         return view('welcome', [
             'users' => $users,
@@ -89,5 +91,3 @@ class UsersController extends Controller
 
 }
 
-//$users = orderBy('id','desc')は「すべてのユーザをＩＤが新しい順（降順）に並び替える」
-//paginate(9)は「９名のユーザを取得する」
