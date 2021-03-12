@@ -54,6 +54,13 @@
                             {{ $video_title }}
                         @endif
                     </p>
+                    
+                    <p>
+                        @if(isset($movie->contents))
+                            {{ $movie->contents }}
+                        @endif
+                    </p>
+                    
 
                     @if(Auth::id() == $movie->user_id)
                         {!! Form::open(['route' => ['movies.destroy', $movie->id], 'method' => 'delete']) !!}

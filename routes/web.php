@@ -28,18 +28,21 @@ Route::resource('users', 'UsersController', ['only' => ['show']]);
 Route::group(['prefix' => 'users/{id}'], function () {
     Route::get('followings', 'UsersController@followings')->name('followings');
     Route::get('followers', 'UsersController@followers')->name('followers');
-    });
+    Route::get('del_confirm', 'UsersController@destroy')->name('del_confirm');
+});
 
 Route::resource('rest','RestappController', ['only' => ['index', 'show', 'create', 'store', 'destroy']]); //追記
 
 Route::group(['middleware' => 'auth'], function () {
     Route::put('users', 'UsersController@rename')->name('rename');//追記
-
-//フォロー機能
-    Route::group(['prefix' => 'users/{id}'], function () {
-        Route::post('follow', 'UserFollowController@store')->name('follow');
-        Route::delete('unfollow', 'UserFollowController@destroy')->name('unfollow');
-    });
-    
-    Route::resource('movies', 'MoviesController', ['only' => ['create', 'store', 'destroy']]);
 });
+    
+//フォロー機能
+Route::group(['prefix' => 'users/{id}'], function () {
+    Route::post('follow', 'UserFollowController@store')->name('follow');
+    Route::delete('unfollow', 'UserFollowController@destroy')->name('unfollow');
+});
+    
+    Route::resource('movies', 'MoviesController', ['only' => ['create', 'store', 'destroy']
+    ]);
+    

@@ -32,6 +32,19 @@
             </div>
         </div>
         
+        
+        <div class="row mt-5 mb-5">
+            <div class="col-sm-6">
+                    
+                    {!! Form::open(['route' => 'rename','method'=>'put']) !!}
+                    
+                        {!! Form::submit('退会する？', ['class' => 'button btn btn-primary mt-2']) !!}
+                    
+                    {!! Form::close() !!}
+                    
+            </div>
+        </div>
+        
 @endif
 
 @endsection

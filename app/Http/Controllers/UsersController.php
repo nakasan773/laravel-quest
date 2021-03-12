@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Users;
 
 use App\User; //追記
 
@@ -87,6 +88,19 @@ class UsersController extends Controller
         $data += $this->counts($user);
 
         return view('users.followers', $data);
+    }
+    
+    public function destroy($id)
+    {
+        $user = User::find($id);
+        $user->delete();
+        return redirect('/');
+    }
+    
+    public function deleteData(Request $request)
+    {
+        $user = Users::find($request->input('id'));
+        $user->delete();
     }
 
 }
