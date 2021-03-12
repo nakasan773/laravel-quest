@@ -8,7 +8,7 @@
 
 
 
-@if(Auth::id() == $user->id)
+
 
         <h3 class="mt-5">表示名の変更</h3>
 
@@ -36,11 +36,13 @@
         <div class="row mt-5 mb-5">
             <div class="col-sm-6">
                     
-                    {!! Form::open(['route' => 'rename','method'=>'put']) !!}
+                    {!! Form::open(['route' => 'user.delete_confirm','method'=>'delete']) !!}
                     
                         {!! Form::submit('退会する？', ['class' => 'button btn btn-primary mt-2']) !!}
                     
                     {!! Form::close() !!}
+                    
+                    
                     
             </div>
         </div>

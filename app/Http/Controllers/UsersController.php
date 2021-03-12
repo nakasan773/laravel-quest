@@ -97,11 +97,8 @@ class UsersController extends Controller
         return redirect('/');
     }
     
-    public function deleteData(Request $request)
-    {
-        $user = Users::find($request->input('id'));
-        $user->delete();
-    }
+   
+    
 
 }
 
