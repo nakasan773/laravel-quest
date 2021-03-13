@@ -18,27 +18,9 @@
                     <br>例）登録したいYouTube動画のURLが <span>https://www.youtube.com/watch?v=-bNMq1Nxn5o なら</span>
                     <div>  "v="の直後にある "<span class="text-success">-bNMq1Nxn5o</span>" を入力</div>
                 {!! Form::text('url',null,['class'=>'form-control']) !!}
-                
-                {!! Form::label('comment','登録動画へのコメント',['class'=> 'mt-3',]) !!}
-                
-                
-                
-                <div style="font-size:small">
-                    {!! Form::label('comment','[タイトル]',['class'=> 'mt-3',]) !!}
-                </div>
-                
-                
-                {!! Form::text('comment',null,['class'=>'form-control']) !!}
-                
-                
-	            <div style="font-size:small">
-                    {!! Form::label('contents','[コメント]',['class'=> 'mt-3',]) !!}
-                </div>
-                
-                {!! Form::text('contents',null,['class'=>'form-control']) !!}
-                
 
-                <br>
+                {!! Form::label('comment','登録動画へのコメント',['class'=> 'mt-3']) !!}
+                {!! Form::text('comment',null,['class'=>'form-control']) !!}
 
                 {!! Form::submit('新規登録する？',['class'=> 'button btn btn-primary mt-5 mb-5']) !!}
 

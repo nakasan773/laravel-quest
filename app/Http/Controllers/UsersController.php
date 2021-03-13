@@ -97,7 +97,10 @@ class UsersController extends Controller
         return redirect('/');
     }
     
-   
+    public function confirm($id)
+    {
+        return view('users.delete_confirm');
+    }
     
 
 }

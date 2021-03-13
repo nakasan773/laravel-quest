@@ -28,6 +28,7 @@ Route::resource('users', 'UsersController', ['only' => ['show']]);
 Route::group(['prefix' => 'users/{id}'], function () {
     Route::get('followings', 'UsersController@followings')->name('followings');
     Route::get('followers', 'UsersController@followers')->name('followers');
+    Route::get('delete_confirm', 'UsersController@confirm')->name('delete_confirm');
     
 });
 
@@ -48,6 +49,6 @@ Route::group(['prefix' => 'users/{id}'], function () {
     
 Route::group(['middleware' => 'auth'], function () {
     Route::resource('users', 'UsersController', ['only' => ['index', 'show', 'destroy']]);
-    Route::get('delete_confirm', 'UsersController@delete_confirm')->name('user.delete_confirm');
+    
 });
     

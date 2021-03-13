@@ -3,7 +3,7 @@
 @section('content')
 
 
-@if(Auth::id() == $user->id)
+
 
 
     <div class="panel panel-default">
@@ -22,7 +22,7 @@
     </div>
     
     
-@endif
-
+    
+    
 
 @endsection

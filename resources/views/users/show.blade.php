@@ -8,6 +8,7 @@
 
 
 
+@if(Auth::id() == $user->id)
 
 
         <h3 class="mt-5">表示名の変更</h3>
@@ -35,17 +36,12 @@
         
         <div class="row mt-5 mb-5">
             <div class="col-sm-6">
-                    
-                    {!! Form::open(['route' => 'user.delete_confirm','method'=>'delete']) !!}
-                    
-                        {!! Form::submit('退会する？', ['class' => 'button btn btn-primary mt-2']) !!}
-                    
-                    {!! Form::close() !!}
-                    
-                    
-                    
+
+            {!! link_to_route('delete_confirm','退会する',['id'=>Auth::id()],['class'=>'button btn btn-danger mt-1']) !!}
+
             </div>
         </div>
+        
         
 @endif
 
