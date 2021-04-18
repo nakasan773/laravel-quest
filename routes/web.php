@@ -28,8 +28,10 @@ Route::resource('users', 'UsersController', ['only' => ['show']]);
 Route::group(['prefix' => 'users/{id}'], function () {
     Route::get('followings', 'UsersController@followings')->name('followings');
     Route::get('followers', 'UsersController@followers')->name('followers');
+    //退会機能
     Route::get('delete_confirm', 'UsersController@confirm')->name('delete_confirm');
-    
+    //パスワード変更
+    Route::get('user_password_edit', 'UsersController@editPassword')->name('user_password_edit');
 });
 
 Route::resource('rest','RestappController', ['only' => ['index', 'show', 'create', 'store', 'destroy']]); //追記
@@ -47,8 +49,14 @@ Route::group(['prefix' => 'users/{id}'], function () {
     Route::resource('movies', 'MoviesController', ['only' => ['create', 'store', 'destroy']
     ]);
     
+//退会機能
 Route::group(['middleware' => 'auth'], function () {
     Route::resource('users', 'UsersController', ['only' => ['index', 'show', 'destroy']]);
-    
+   
 });
-    
+
+//パスワード変更
+Route::group(['middleware' => ['auth', 'web']], function () {
+    Route::get('/user/password/edit', 'UserController@editPassword')->name('user.password.edit');
+    Route::post('/user/password/', 'UserController@updatePassword')->name('user.password.update');
+});

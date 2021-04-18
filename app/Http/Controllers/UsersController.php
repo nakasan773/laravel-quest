@@ -102,6 +102,15 @@ class UsersController extends Controller
         return view('users.delete_confirm');
     }
     
+    public function editPassword(){
+        return view('users.user_password_edit');
+    }
 
+    public function updatePassword(UpdatePasswordRequest $request){
+        $user = \Auth::user();
+        $user->password = bcrypt($request->get('new-password'));
+        $user->save();
+
+        return redirect()->back()->with('update_password_success', 'パスワードを変更しました。');
+    }
 }
-
