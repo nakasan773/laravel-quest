@@ -21,8 +21,7 @@ Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login')->name('login.post');
 Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 
-//追記（ログイン認証を通ったユーザのみがその内部のルーティングにアクセスできるように）
-Route::resource('users', 'UsersController', ['only' => ['show']]);
+//追記（ログイン認証を通ったユーザのみがその内部のルーティングにアクセスできる
 
 //フォロー機能
 Route::group(['prefix' => 'users/{id}'], function () {

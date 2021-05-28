@@ -24,7 +24,7 @@
                 }else{
                     $video_title="※一時的な情報制限中です";
                 }
-            
+        
             }
 
         @endphp
@@ -37,41 +37,37 @@
 
         @endif
 
-            <div class="col-lg-4 mb-5">
+        <div class="col-lg-4 mb-5">
 
-                <div class="movie text-left d-inline-block">
+            <div class="movie text-left d-inline-block">
 
-                    ＠{!! link_to_route('users.show',$user->name,['id'=>$user->id]) !!}
-
-
-                    <div>
-                        @if($movie)
-                            <iframe width="290" height="163.125" src="{{ 'https://www.youtube.com/embed/'.$movie->url }}?controls=1&loop=1&playlist={{ $movie->url }}" frameborder="0"></iframe>
-                        @else
-                            <iframe width="290" height="163.125" src="https://www.youtube.com/embed/" frameborder="0"></iframe>
-                            @php
-                                $video_title="※動画が未登録です";
-                            @endphp
-                        @endif
-                    </div>
-
-                    <p>
-                        @if(isset($movie->comment))
-                               {{ $movie->comment }}
-                        @else
-                            {{ $video_title }}
-                        @endif
-                    </p>
-                    
-                        @include('follow.follow_button',['user'=>$user])
+                ＠{!! link_to_route('users.show',$user->name,['id'=>$user->id]) !!}
 
 
+                <div>
+                    @if($movie)
+                        <iframe width="290" height="163.125" src="{{ 'https://www.youtube.com/embed/'.$movie->url }}?controls=1&loop=1&playlist={{ $movie->url }}" frameborder="0"></iframe>
+                    @else
+                        <iframe width="290" height="163.125" src="https://www.youtube.com/embed/" frameborder="0"></iframe>
+                        @php
+                            $video_title="※動画が未登録です";
+                        @endphp
+                    @endif
                 </div>
 
+                <p>
+                    @if(isset($movie->comment))
+                        {{ $movie->comment }}
+                    @else
+                        {{ $video_title }}
+                    @endif
+                </p>
+                
+                @include('follow.follow_button',['user'=>$user])
+                
             </div>
-
+        </div>
     @endforeach
-
 </div>
 
 {{ $users->links('pagination::bootstrap-4') }}
