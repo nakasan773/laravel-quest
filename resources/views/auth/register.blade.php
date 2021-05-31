@@ -2,9 +2,9 @@
 
 @section('content')
 
-    <div class="center jumbotron bg-warning">
+    <div class="center jumbotron bg-info">
         <div class="text-center text-white">
-            <h1>YouTubeまとめ × SNS</h1>
+            <h1>YouTube動画共有サイト</h1>
         </div>
     </div>
 

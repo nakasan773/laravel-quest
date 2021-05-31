@@ -42,14 +42,6 @@
             </div>
         </div>
         
-        <div class="row mt-5 mb-5">
-            <div class="col-sm-6">
-
-            {!! link_to_route('user_password_edit','パスワードの変更',['id'=>Auth::id()],['class'=>'button btn btn-danger mt-1']) !!}
-
-            </div>
-        </div>
-        
 @endif
 
 @endsection
