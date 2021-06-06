@@ -36,7 +36,7 @@ class MoviesController extends Controller
             'contents' => $request->contents,
         ]);
 
-        return back();
+        return view('users.show');
     }
 
     public function destroy($id)
